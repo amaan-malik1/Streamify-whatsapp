@@ -42,7 +42,7 @@ const userSchema = new Schema({
         type: String,
         default: ""
     },
-    isOnboraded: {
+    isOnboard: {
         type: Boolean,
         default: false
     },

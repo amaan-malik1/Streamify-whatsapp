@@ -7,7 +7,6 @@ import { upsertUserToStream } from "../lib/stream.js";
 
 export async function signup(req, res) {
     const { email, password, fullName } = req.body;
-
     try {
         if (!email || !password || !fullName) {
             return res.status(401).json({ messgae: "ALL fiels are required" })
@@ -15,7 +14,7 @@ export async function signup(req, res) {
 
         if (password.length < 8) {
             return res.status(400).json({
-                messgae: "Password must be atleat 8 characters "
+                message: "Password must be atleat 8 characters "
             })
         }
 
@@ -177,7 +176,7 @@ export async function onboard(req, res) {
             nativeLanguage,
             location,
             learningLanguage,
-            isOnboraded: true,
+            isOnboard: true,
         })
 
         if (!updatedUser) {
@@ -207,6 +206,6 @@ export async function onboard(req, res) {
 
     } catch (error) {
         console.log("Error i onboarding: ", error);
-        res.status(500).json({ message: "Internal server error in onborad" })
+        res.status(500).json({ message: "Internal server error in Onboard" })
     }
 }
