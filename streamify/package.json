@@ -4,12 +4,13 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --host",
+    "dev": "vite",
     "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "eslint ."
   },
   "dependencies": {
+    "@stream-io/video-react-sdk": "^1.18.12",
     "@tanstack/react-query": "^5.82.0",
     "axios": "^1.10.0",
     "framer-motion": "^12.23.0",
@@ -18,6 +19,9 @@
     "react-dom": "^19.1.0",
     "react-hot-toast": "^2.5.2",
     "react-router-dom": "^7.6.3",
+    "stream-chat": "^9.11.0",
+    "stream-chat-react": "^13.2.3",
+    "streamify": "file:..",
     "theme-change": "^2.5.0",
     "zustand": "^5.0.6"
   },

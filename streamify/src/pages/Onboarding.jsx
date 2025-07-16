@@ -70,12 +70,13 @@ const Onboarding = () => {
 
 
   const handleRandomAvatar = () => {
-    const avatarIndex = Math.floor(Math.random() * 100) + 1;
-    const randomAvatar = `https://avatar.iran.liara.run/public/${avatarIndex}.png`;
+    const avatarIndex = Math.floor(Math.random() * 1000);
+    const randomAvatar = `https://api.dicebear.com/7.x/avataaars/svg?seed=${avatarIndex}`;
 
     setFormState({ ...formState, profilePic: randomAvatar });
     toast.success('Random profile picture generated!');
   };
+
 
   return (
     <div className="min-h-screen bg-base-100 flex items-center justify-center p-4">

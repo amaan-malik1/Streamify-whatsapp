@@ -1,5 +1,6 @@
 import React from 'react'
 import { getLanguageFlag } from '../lib/getLanguageFlag.jsx';
+import { Link } from 'react-router-dom';
 
 const FriendCard = ({ friend }) => {
     return (

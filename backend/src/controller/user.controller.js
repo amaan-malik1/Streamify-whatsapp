@@ -18,7 +18,7 @@ export async function getRecommandedUsers(req, res) {
                 // not even this
                 //Not in this list.
                 { _id: { $nin: currentUser.friends } }, //exclude the user friends $nin => not in 
-                { isOnboraded: true }
+                { isOnboard: true }
             ]
         })
 
@@ -37,10 +37,14 @@ export async function getRecommandedUsers(req, res) {
 
 export async function getMyFriends(req, res) {
     try {
-        const userForFriend = await userModel.find(req.user._id).select("friends").populate("friends", "fullName profilePic learningLanguage nativeLanguage location");
+        const getMyFriends = await userModel.findById(req.user._id).select("friends").populate("friends", "fullName profilePic learningLanguage nativeLanguage location");
+
+        if (!getMyFriends) {
+            return res.status(404).json({ message: "User not found" });
+        }
 
         // response the user's friends from friends schema
-        res.status(200).json(userForFriend.friends);
+        res.status(200).json(getMyFriends.friends);
 
     } catch (error) {
         console.log("Error in getMyFriends controller: ", error);

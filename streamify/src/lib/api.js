@@ -34,7 +34,7 @@ export const completeOnboarding = async (userData) => {
   const response = await axiosInstance.post('/auth/onboarding', userData, {
     withCredentials: true
   });
-  return response.data;
+  return response.data?.friends;
 };
 
 export const getRecommendedFriends = async () => {
@@ -45,9 +45,11 @@ export const getRecommendedFriends = async () => {
 };
 
 export const getFriendUser = async () => {
-  const response = await axiosInstance.get('/user/friends', {
+
+  const response = await axiosInstance.get('/user/myFriends', {
     withCredentials: true
   });
+  // console.log(response);
   return response.data;
 };
 export const getOutgoingReq = async () => {
@@ -75,8 +77,14 @@ export const getFriendRequest = async () => {
 export const acceptFriendReqMutation = async (requestedId) => {
   const response = await axiosInstance.put(
     `/user/acceptFriendRequest/${requestedId}/accept`,
-    {}, 
+    {},
     { withCredentials: true }
   );
   return response.data;
 };
+
+
+export async function getStreamToken() {
+  const response = await axiosInstance.get("/chat/token");
+  return response.data;
+}

@@ -13,11 +13,12 @@ const Home = () => {
     const queryClient = useQueryClient();
     const [outgoingRequestsIds, setOutgoingRequestsIds] = useState(new Set());
 
-    // friends
-    const { data: friends = [], isLoading: loadingFriends } = useQuery({
+    // get myFriends
+    const { data: myFriends = [], isLoading: loadingFriends } = useQuery({
         queryKey: ['friends'],
         queryFn: getFriendUser,
     });
+
 
     // recommendedFriends now always an array
     const {
@@ -29,10 +30,16 @@ const Home = () => {
     });
 
     // outgoing requests
-    const { data: outgoingReq = [], isLoading: loadingOutgoingReq } = useQuery({
+    const { data: outgoingReq = [] } = useQuery({
         queryKey: ['outgoingReq'],
         queryFn: getOutgoingReq,
     });
+
+    //testing checks
+    // console.log("Friends", myFriends);
+    // console.log("Recommended", recommendedFriends);
+    // console.log("Outgoing", outgoingReq);
+
 
     // send request
     const { mutate: sendRequestMutation, isPending } = useMutation({
@@ -64,11 +71,11 @@ const Home = () => {
                         <div className="flex justify-center py-12">
                             <span className="loading loading-spinner loading-lg" />
                         </div>
-                    ) : friends.length === 0 ? (
+                    ) : myFriends.length === 0 ? (
                         <NoFriendsFound />
                     ) : (
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                            {friends.map((friend) => (
+                            {myFriends.map((friend) => (
                                 <FriendCard key={friend._id} friend={friend} />
                             ))}
                         </div>

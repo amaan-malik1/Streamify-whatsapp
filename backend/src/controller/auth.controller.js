@@ -32,9 +32,9 @@ export async function signup(req, res) {
 
         }
 
-        const avatarIndex = Math.floor(Math.random() * 100) + 1; // generate a number between 1-100
+        const avatarIndex = Math.floor(Math.random() * 1000); // generate a number between 1-100
 
-        const randomAvatar = `https://avatar.iran.liara.run/public/${avatarIndex}.png`;
+        const randomAvatar = `https://api.dicebear.com/7.x/avataaars/svg?seed=${avatarIndex}`;
 
         // creating new user and feeding it to DB
         const newUser = await userModel.create({
@@ -44,8 +44,8 @@ export async function signup(req, res) {
             profilePic: randomAvatar
         })
 
-        // TODO: Create user in stream 
 
+        // creating stream user 
         try {
             await upsertUserToStream({
                 id: newUser._id.toString(),

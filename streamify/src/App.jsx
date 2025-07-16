@@ -7,12 +7,12 @@ import Login from './pages/Login.jsx'
 import Notification from './pages/Notification.jsx'
 import Call from './pages/Call.jsx'
 import Onboarding from './pages/Onboarding.jsx'
-import Chat from './pages/Chat.jsx'
 import PageLoader from './components/pageLoader.jsx'
 import Layout from './components/Layout.jsx'
 import useAuthUser from './hooks/useAuthUser.js'
 import { Toaster } from 'react-hot-toast';
 import { useThemeStore } from './store/useThemeStore.js'
+import ChatPage from './pages/ChatPage.jsx'
 
 
 function App() {
@@ -70,31 +70,31 @@ function App() {
           path="/onboarding"
           element=
           {
-            isAuthenticated ? (
-              !isOnboarded ? (
-                <Onboarding />
-              ) : (<Navigate to={'/'} replace />)
-            ) : (
-              <Navigate to={'/login'} replace />
-            )
+            isAuthenticated ? (!isOnboarded ? (<Onboarding />) : (<Navigate to={'/'} replace />)) : (<Navigate to={'/login'} replace />)
           }
         />
 
         {/* Chat */}
         <Route
-          path="/chat"
+          path="/chat/:id"  // this const var(id) must same as the var we used in the page like const {id} = useParams() 
           element=
           {
-            isAuthenticated ? <Chat /> : <Navigate to="/login" replace />
+            isAuthenticated && isOnboarded ? (
+              <Layout showSidebar={false}>
+                <ChatPage />
+              </Layout>
+            ) : (<Navigate to={isAuthenticated ? '/onboarding' : "/login"} />)
           }
         />
 
         {/* Call */}
         <Route
-          path="/call"
+          path="/call/:id"
           element=
           {
-            isAuthenticated ? <Call /> : <Navigate to="/login" replace />
+            isAuthenticated && isOnboarded ? (<Call />) : (
+              <Navigate to={!isAuthenticated ? '/login' : '/onboarding'} />
+            )
           }
         />
 

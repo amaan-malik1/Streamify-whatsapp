@@ -6,7 +6,7 @@ const router = express.Router();
 router.use(protectRoute)
 
 router.get('/', getRecommandedUsers);
-router.get('/friends', getMyFriends);
+router.get('/myFriends', getMyFriends);
 router.post('/sendFriendRequest/:requestedId', sendFriendRequest);
 router.put('/acceptFriendRequest/:requestedId/accept', acceptFriendRequest);
 
