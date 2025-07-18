@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon src/index.js",
+    "prestart": "npm run build --prefix ../streamify",
     "start": "node src/index.js",
     "build": "echo \"No build needed for backend\""
   },
