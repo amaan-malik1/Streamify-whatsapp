@@ -33,6 +33,7 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "prebuild": "npm install --prefix streamify",
     "build": "npm run build --prefix streamify",
     "start": "npm run start --prefix backend"
   },
