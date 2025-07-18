@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "concurrently \"npm run dev --prefix backend\" \"npm run dev --prefix streamify\"",
     "build": "npm install --prefix backend && npm install --prefix streamify && npm run build --prefix streamify",
-    "start": "npm run start --prefix backend"
+    "start": "npm install && npm run start --prefix backend"
   },
   "repository": {
     "type": "git",
