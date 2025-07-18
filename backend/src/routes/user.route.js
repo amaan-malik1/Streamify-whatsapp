@@ -8,7 +8,7 @@ router.use(protectRoute)
 router.get('/', getRecommandedUsers);
 router.get('/myFriends', getMyFriends);
 router.post('/sendFriendRequest/:requestedId', sendFriendRequest);
-router.put('/acceptFriendRequest/:requestedId', acceptFriendRequest);
+router.put('/acceptFriendRequest/:requestedId/accept', acceptFriendRequest);
 
 router.get('/allFriendRequest', getAllFriendRequests);
 router.get('/outgoingFriendReqs', getOutgoingFriendReqs);

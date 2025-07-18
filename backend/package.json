@@ -22,5 +22,8 @@
     "nodemon": "^3.1.10",
     "stream-chat": "^9.10.0",
     "streamify": "file:.."
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.0"
   }
 }
