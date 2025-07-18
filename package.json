@@ -32,7 +32,9 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npm run build --prefix streamify",
+    "start": "npm run start --prefix backend"
   },
   "repository": {
     "type": "git",
