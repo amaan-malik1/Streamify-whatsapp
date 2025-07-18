@@ -4,45 +4,43 @@ import authRouter from './routes/auth.route.js';
 import userRouter from './routes/user.route.js';
 import chatRouter from './routes/chat.route.js';
 import { connectDB } from './lib/db.js';
-import cookieParser from 'cookie-parser';
+import cookieParser from 'cookie-parser'
 import cors from 'cors';
-import path from 'path';
-import { fileURLToPath } from 'url';
+import path from 'path'
 
-// Fix for __dirname in ES Modules
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
-// Config & App setup
-dotenv.config();
+
 const app = express();
-const PORT = process.env.PORT || 3000;
 
-// Middlewares
+dotenv.config();
+
 app.use(express.json());
-app.use(cookieParser());
+app.use(cookieParser());    // with that we can get the cookie in req
+
+const PORT = process.env.PORT;
+const __dirname = path.resolve();
+
+
 app.use(cors({
-  origin: [process.env.CLIENT_URL, 'http://localhost:5173'],
+  origin: 'http://localhost:5173', // your frontend URL
   credentials: true,
 }));
 
-// Routes
+
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "../../streamify/dist")));
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../streamify", "dist", "index.html"));
+  });
+}
+
 app.use('/api/auth', authRouter);
 app.use('/api/user', userRouter);
 app.use('/api/chat', chatRouter);
 
-// Serve static files in production
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../../streamify/dist')));
-
-  app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../streamify/dist/index.html'));
-  });
-}
-
-// Start server
-connectDB().then(() => {
-  app.listen(PORT, () => {
-    console.log(`🚀 Server running at http://localhost:${PORT}`);
-  });
-});
+app.listen(PORT, () => {
+  console.log(`Server is successfully running on port http://localhost:${PORT}`);
+  connectDB();
+})
