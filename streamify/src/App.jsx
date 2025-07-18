@@ -7,7 +7,7 @@ import Login from './pages/Login.jsx'
 import Notification from './pages/Notification.jsx'
 import Call from './pages/Call.jsx'
 import Onboarding from './pages/Onboarding.jsx'
-import PageLoader from './components/pageLoader.jsx'
+import PageLoader from './components/PageLoader.jsx'
 import Layout from './components/Layout.jsx'
 import useAuthUser from './hooks/useAuthUser.js'
 import { Toaster } from 'react-hot-toast';
