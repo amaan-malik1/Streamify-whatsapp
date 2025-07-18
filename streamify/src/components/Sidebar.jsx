@@ -43,14 +43,14 @@ const Sidebar = () => {
         </Link>
 
         {/* Friends */}
-        <Link
+        {/* <Link
           to="/friends"
           className={`btn btn-ghost rounded-full justify-start w-full gap-3 px-3 py-6 normal-case ${currentPath === "/friends" ? "bg-slate-700" : ""
             }`}
         >
           <UsersIcon className="size-5" />
           <span>Friends</span>
-        </Link>
+        </Link> */}
       </nav>
 
       {/* User profile */}

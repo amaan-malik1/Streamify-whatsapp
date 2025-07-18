@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "concurrently \"npm run dev --prefix backend\" \"npm run dev --prefix streamify\"",
-    "build": "npm install --prefix streamify && npm run build --prefix streamify",
+    "build": "npm install --prefix backend && npm install --prefix streamify && npm run build --prefix streamify",
     "start": "npm run start --prefix backend"
   },
   "repository": {
@@ -22,5 +21,8 @@
   "homepage": "https://github.com/amaan-malik1/Streamify-whatsapp#readme",
   "devDependencies": {
     "concurrently": "^9.2.0"
+  },
+  "dependencies": {
+    "express-list-endpoints": "^7.1.1"
   }
 }

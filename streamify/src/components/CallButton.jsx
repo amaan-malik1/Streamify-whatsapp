@@ -14,14 +14,14 @@ import {
     CallingState,
     useCallStateHooks,
 } from "@stream-io/video-react-sdk";
-
-
-const STREAM_API_KEY = import.meta.env.VITE_STREAM_API_KEY;
 import "@stream-io/video-react-sdk/dist/css/styles.css";
 import toast from "react-hot-toast";
 import PageLoader from "../components/PageLoader";
 
-function CallButton() {
+
+const STREAM_API_KEY = import.meta.env.VITE_STREAM_API_KEY;
+
+function CallButton({handleVideoCall}) {
     const { id: callId } = useParams();
     const [client, setClient] = useState(null);
     const [call, setCall] = useState(null);

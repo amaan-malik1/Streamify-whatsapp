@@ -8,6 +8,8 @@ import cookieParser from 'cookie-parser'
 import cors from 'cors';
 import path from 'path'
 
+
+
 const app = express();
 
 dotenv.config();
@@ -24,21 +26,19 @@ app.use(cors({
   credentials: true,
 }));
 
+
+
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../streamify/dist")));
 
-  app.get("/*", (req, res) => {
-    res.sendFile(path.join(__dirname, "../streamify", "dist", "index.html"))
-  })
-
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../streamify", "dist", "index.html"));
+  });
 }
-
 
 app.use('/api/auth', authRouter);
 app.use('/api/user', userRouter);
 app.use('/api/chat', chatRouter);
-
-
 
 app.listen(PORT, () => {
   console.log(`Server is successfully running on port http://localhost:${PORT}`);
