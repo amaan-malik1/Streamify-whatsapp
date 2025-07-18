@@ -5,14 +5,19 @@
   "main": "index.js",
   "scripts": {
     "dev": "concurrently \"npm run dev --prefix backend\" \"npm run dev --prefix streamify\"",
-    "build": "npm install --prefix backend && npm install --prefix streamify && npm run build --prefix streamify",
-    "start": "npm install && npm run start --prefix backend"
+    "build": "npm run build --prefix streamify",
+    "start": "concurrently \"npm start --prefix backend\" \"npm run preview --prefix streamify\""
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/amaan-malik1/Streamify-whatsapp.git"
   },
-  "keywords": ["mern", "stream", "vite", "chat"],
+  "keywords": [
+    "mern",
+    "stream",
+    "vite",
+    "chat"
+  ],
   "author": "Amaan Malik",
   "license": "ISC",
   "bugs": {

@@ -33,7 +33,7 @@ app.use('/api/chat', chatRouter);
 
 // Serve static files in production
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../streamify/dist')));
+  app.use(express.static(path.join(__dirname, '../../streamify/dist')));
 
   app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../streamify/dist/index.html'));

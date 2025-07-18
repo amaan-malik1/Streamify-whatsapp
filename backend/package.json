@@ -5,7 +5,8 @@
   "main": "src/index.js",
   "scripts": {
     "dev": "nodemon src/index.js",
-    "start": "node src/index.js"
+    "start": "node src/index.js",
+    "build": "echo \"No build needed for backend\""
   },
   "keywords": [],
   "author": "",
@@ -20,8 +21,7 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.16.1",
     "nodemon": "^3.1.10",
-    "stream-chat": "^9.10.0",
-    "streamify": "file:.."
+    "stream-chat": "^9.10.0"
   },
   "devDependencies": {
     "concurrently": "^9.2.0"
