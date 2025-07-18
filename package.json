@@ -24,7 +24,7 @@
     "url": "https://github.com/amaan-malik1/Streamify-whatsapp/issues"
   },
   "homepage": "https://github.com/amaan-malik1/Streamify-whatsapp#readme",
-  "devDependencies": {
+  "dependencies": {
     "concurrently": "^9.2.0"
   }
 }
