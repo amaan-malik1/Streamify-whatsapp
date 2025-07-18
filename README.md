@@ -47,7 +47,7 @@ npm run dev
 ## 💻 Run the Frontend
 
 ```bash
-cd frontend
+cd streamify
 npm install
 npm run dev
 ```
