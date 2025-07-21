@@ -6,9 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon src/index.js",
-    "prestart": "npm run build --prefix ../streamify",
-    "start": "node src/index.js",
-    "build": "echo \"No build needed for backend\""
+    "start": "node src/index.js"
   },
   "dependencies": {
     "bcrypt": "^6.0.0",
@@ -19,7 +17,6 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.16.1",
     "nodemon": "^3.1.10",
-    "stream-chat": "^9.10.0",
-    "streamify": "file:.."
+    "stream-chat": "^9.10.0"
   }
 }
