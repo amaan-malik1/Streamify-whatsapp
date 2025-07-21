@@ -2,6 +2,7 @@
   "name": "streamify-root",
   "private": true,
   "scripts": {
+    "prebuild": "npm install --prefix streamify",
     "build": "npm run build --prefix streamify",
     "start": "npm run start --prefix backend"
   }
