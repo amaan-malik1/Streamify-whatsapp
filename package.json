@@ -4,6 +4,22 @@
   "scripts": {
     "prebuild": "npm install --prefix streamify",
     "build": "npm run build --prefix streamify",
+    "prestart": "npm install --prefix backend",
     "start": "npm run start --prefix backend"
-  }
+  },
+  "version": "1.0.0",
+  "description": "<h1 align=\"center\">✨ Streamify: Fullstack Chat & Video Calling App ✨</h1>",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amaan-malik1/Streamify-whatsapp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/amaan-malik1/Streamify-whatsapp/issues"
+  },
+  "homepage": "https://github.com/amaan-malik1/Streamify-whatsapp#readme"
 }
